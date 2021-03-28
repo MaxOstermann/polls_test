@@ -10,8 +10,8 @@ class PollViewSet(viewsets.ModelViewSet):
     A simple ViewSet for viewing and editing Polls.
     """
     queryset = Poll.objects.filter(
-        start_date__gte=timezone.now(),
-        end_date__lte=timezone.now(),
+        start_date__lte=timezone.now(),
+        end_date__gte=timezone.now(),
     )
     serializer_class = PollSerializer
 
@@ -34,7 +34,7 @@ class AttemptViewSet(viewsets.ModelViewSet):
 
 class AnswerViewSet(viewsets.ModelViewSet):
     """
-    A simple ViewSet for viewing and editing Attempts.
+    A simple ViewSet for viewing and editing Answers.
     """
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
